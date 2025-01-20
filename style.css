@@ -1,110 +1,91 @@
-*{
+body {
     margin: 0;
     padding: 0;
-}
-body{
-    background: url(calc.png)fixed center/cover; 
-}
-.app{
-    /* Permet de mettre les éléments sur la même colonne  */
-    display: grid;
-    width: 300px;
-    height: 400px;
-    margin-top: 30%;
-    margin-left: 50%;
-    transform: translate(-50%,-50%);
-    /* On dit qu'on veux 4 colonnes de 25% */
-    grid-template-columns: 25% 25% 25% 25%;
-    /* On dit qu'on veux une première ligne de 50px et ensuite un repeat de 5 lignes avec 30 px  */
-    grid-template-rows: 150px repeat(5,50px);
-    /* On va dessiner a quoi va ressembler la calculatrice et la c'est a dire 4 colonnes et 6 lignes  */
-    grid-template-areas: 
-        "res res res res"
-        "N7 N8 N9 reset "
-        "N4 N5 N6 reset"
-        "N1 N2 N3 reset"
-        /* dot c'est le point plus c'est + et minus c'est - */
-        "N0 dot plus moins "
-        /* ensuite equal c'est égal times c'est * et div c'est / */
-        "fois div equal equal "
-    ;
-
-    border:7px solid black;
-    border-radius: 10px;
-    position: absolute;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f9; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333; 
 }
 
-#res{
+.app {
+    background: #ffffff; 
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
     text-align: center;
-    padding-top: 60px;
-    height: 200px;
+    justify-content: center;
+    width: 300px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+h3#res {
     font-size: 2rem;
-    /* la on appel la premiere ligne qu'on a dessiner dans le app  */
-    grid-area: res;
-    background-color:paleturquoise;
+    height: 70px;
+    margin: 0 0 10px;
+    padding: 10px;
+    border: 2px solid #4caf50; 
+    border-radius: 10px;
+    background: #e8f5e9; 
+    text-align: right;
+    color: #388e3c; 
+    overflow: hidden;
+    grid-column: span 4;
 }
 
-button{
-    background-color: teal;
-    color:white;
-    border: 1px solid white;
-    border-radius: 4px;
-    cursor:pointer;
-    transition: 0.2s;
-   
+button {
+    background: #e0e0e0; 
+    border: none;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    padding: 15px;
+    color: #333; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
 }
 
-/* Permet que lorsqu'on passe sur les boutons sa mettre cette couleur  */
-button:hover{
-    background-color: rgb(5,190,190);
+button:hover {
+    background: #d6d6d6; 
+    transform: translateY(-3px);
 }
 
-#equal{
-    /* La le égal prend bien les 2 places du bas comme on l'avais dessiner  dans le app  */
-    grid-area: equal;
+#equal {
+    background: #4caf50; 
+    font-weight: bold;
+    color: #fff; 
+    grid-column: span 4; 
 }
 
-#clear{
-    grid-area: reset;
+#equal:hover {
+    background: #388e3c; 
 }
 
-#N9{
-    grid-area: N9;
+#clear {
+    background: #f44336; 
+    font-weight: bold;
+    width: 70px;
+    height: 70px;
+    color: #fff; 
 }
 
-#N8{
-    grid-area: N8;
+#clear:hover {
+    background: #d32f2f; 
 }
 
-#N7{
-    grid-area: N7;
+button.btn {
+    height: 70px;
+    width: 70px;
 }
-#N6{
-    grid-area: N6;
-}
-#N5{
-    grid-area: N5;
-}
-#N4{
-    grid-area: N4;
-}
-#N3{
-    grid-area: N3;
-}
-#N2{
-    grid-area: N2;
-}
-#N1{
-    grid-area: N1;
-}
-#N0{
-    grid-area: N0;
-}
-#sepa{
-   height: 10px;
-   width: 302px;
-   position: absolute;
-   background-color: black;
-   margin-top: 26.8%;
-   margin-left: 41.95%;
+
+.Separateur {
+    grid-column: span 4;
+    height: 1px;
+    background: #d6d6d6; 
+    margin: 10px 0;
 }
